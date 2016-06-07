@@ -55,6 +55,11 @@ update_preferences_attribute() {
     fi
 }
 
+# Set the correct IP.
+if [ -n "$PLEX_IP" ]; then
+     update_preferences_attribute customConnections https://${PLEX_IP}
+fi
+
 # Sets PlexOnlineToken in Preferences.xml if provided.
 if [ -n "$X_PLEX_TOKEN" ]; then
     update_preferences_attribute PlexOnlineToken "$X_PLEX_TOKEN"
