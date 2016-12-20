@@ -55,6 +55,9 @@ update_preferences_attribute() {
     fi
 }
 
+# Disable bridge connections
+update_preferences_attribute allowedNetworks 127.0.0.1/255.255.255.255
+
 # Set the correct IP.
 if [ -n "$PLEX_IP" ]; then
      update_preferences_attribute customConnections https://${PLEX_IP}
