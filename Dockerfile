@@ -7,7 +7,7 @@ FROM debian:jessie
 # Note: We created a dummy /bin/start to avoid install to fail due to upstart not being installed.
 # We won't use upstart anyway.
 RUN set -x \
- && useradd --system --uid 797 -M --shell /usr/sbin/nologin plex \
+ && useradd --system --uid 1000 -M --shell /usr/sbin/nologin plex \
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         ca-certificates \
