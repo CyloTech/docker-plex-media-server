@@ -2,7 +2,6 @@ FROM debian:stretch-slim
 
 # Install basic required packages.
 RUN set -x \
- && useradd --system --uid 1000 -M --shell /usr/sbin/nologin plex \
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         ca-certificates \
@@ -19,7 +18,7 @@ RUN set -x \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
     # Create plex user
- && useradd --system --uid 797 --create-home --shell /usr/sbin/nologin plex \
+ && useradd --system --uid 1000 --create-home --shell /usr/sbin/nologin plex \
     # Download and install Plex (non plexpass) after displaying downloaded URL in the log.
     # This gets the latest non-plexpass version
     # Note: We created a dummy /bin/start to avoid install to fail due to upstart not being installed.
